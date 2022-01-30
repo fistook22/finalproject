@@ -24,7 +24,6 @@ def login():
                 return redirect(url_for('dashboard'))
 
         return '<h1>Invalid username or password</h1>'
-        # return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
 
     return render_template('login.html', form=form)
 
@@ -39,16 +38,15 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        return '<h1>New user has been created!</h1>'
-        # return '<h1>' + form.username.data + ' ' + form.email.data + ' ' + form.password.data + '</h1>'
+        return f'<h1>Hey {new_user}! lets taste some whisky!</h1>'
 
     return render_template('signup.html', form=form)
 
 
-@app.route('/dashboard')
+@app.route('/history')
 @login_required
-def dashboard():
-    return render_template('dashboard.html', name=current_user.username)
+def history():
+    return render_template('history.html', name=current_user.username)
 
 
 @app.route('/logout')
