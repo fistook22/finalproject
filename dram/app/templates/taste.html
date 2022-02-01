@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tasting
+{% endblock %}
+
+{% block my_block %}
+
+    <form method="POST" role="form">
+        {{ form.hidden_tag() }}
+
+        {{ form.distillery.label(class="form-label") }}
+        {{ form.distillery(class="form-control-sm") }}
+        <br>
+        {{ form.edition.label(class="form-label") }}
+        {{ form.edition(class="form-control-sm") }}
+        <br>
+        {{ form.color.label(class="form-label") }}
+        {{ form.color(class="form-control-sm") }}
+        <br>
+        {{ form.smokey.label(class="form-label") }}
+        {{ form.smokey(class="form-control-sm") }}
+        <br>
+        {{ form.peaty.label(class="form-label") }}
+        {{ form.peaty(class="form-control-sm") }}
+        <br>
+        {{ form.spicy.label(class="form-label") }}
+        {{ form.spicy(class="form-control-sm") }}
+        <br>
+        {{ form.sweet.label(class="form-label") }}
+        {{ form.sweet(class="form-control-sm") }}
+        <br>
+        {{ form.fresh_fruit.label(class="form-label") }}
+        {{ form.fresh_fruit(class="form-control-sm") }}
+        <br>
+        {{ form.dried_fruit.label(class="form-label") }}
+        {{ form.dried_fruit(class="form-control-sm") }}
+        <br>
+        {{ form.red_fruit.label(class="form-label") }}
+        {{ form.red_fruit(class="form-control-sm") }}
+        <br>
+        {{ form.feinty.label(class="form-label") }}
+        {{ form.feinty(class="form-control-sm") }}
+        <br>
+        {{ form.floral.label(class="form-label") }}
+        {{ form.floral(class="form-control-sm") }}
+        <br>
+        {{ form.winey.label(class="form-label") }}
+        {{ form.winey(class="form-control-sm") }}
+        <br>
+        {{ form.oak.label(class="form-label") }}
+        {{ form.oak(class="form-control-sm") }}
+        <br>
+        {{ form.cereal.label(class="form-label") }}
+        {{ form.cereal(class="form-control-sm") }}
+        <br>
+        {{ form.chocolate.label(class="form-label") }}
+        {{ form.chocolate(class="form-control-sm") }}
+        <br>
+        {{ form.finish.label(class="form-label") }}
+        {{ form.finish(class="form-control-sm") }}
+        <br>
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control-sm") }}
+        <br>
+            {{ form.submit(class="btn btn-secondary") }}
+
+
+    </form>
+
+{% endblock %}

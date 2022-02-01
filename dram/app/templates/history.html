@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+
 {% block my_block %}
+
+{% for whisky in data %}
+    {% if current_user == user %}
+        {{ whisky.distillery }}
+        {{ whisky.edition }}
+    {%endif%}
+{%endfor%}
 
 {% endblock %}
