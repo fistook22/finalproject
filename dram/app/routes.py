@@ -1,10 +1,11 @@
 from flask import redirect, render_template, url_for
+from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from app import app, db, models
-from app.models import User, Whisky
+from app import app, db
 from app.forms import LoginForm, RegisterForm, Taste
-from flask_login import login_user, login_required, logout_user, current_user
+from app.models import User, Whisky
+import matplotlib.pyplot as plt
 
 
 @app.route('/')
@@ -47,7 +48,94 @@ def signup():
 @app.route('/history')
 @login_required
 def history():
-    return render_template('history.html', user=User.query.filter_by(id=current_user.get_id()).first())
+    return render_template('history.html', user_whisky_history=Whisky.query.filter_by(user_id=current_user.get_id()))
+
+
+@app.route('/statistics')
+@login_required
+def statistics():
+    whisky = Whisky.query.filter_by(user_id=current_user.get_id())
+
+    def get_smokey():
+        for column in whisky:
+            return column.smokey
+    smokey_taste = get_smokey()
+
+    def get_peaty():
+        for column in whisky:
+            return column.peaty
+    peaty_taste = get_peaty()
+
+    def get_spicy():
+        for column in whisky:
+            return column.spicy
+    spicy_taste = get_spicy()
+
+    def get_sweet():
+        for column in whisky:
+            return column.sweet
+    sweet_taste = get_sweet()
+
+    def get_fresh_fruit():
+        for column in whisky:
+            return column.fresh_fruit
+    fresh_fruit_taste = get_fresh_fruit()
+
+    def get_dried_fruit():
+        for column in whisky:
+            return column.dried_fruit
+    dried_fruit_taste = get_dried_fruit()
+
+    def get_red_fruit():
+        for column in whisky:
+            return column.red_fruit
+    red_fruit_taste = get_red_fruit()
+
+    def get_feinty():
+        for column in whisky:
+            return column.feinty
+    feinty_taste = get_feinty()
+
+    def get_floral():
+        for column in whisky:
+            return column.floral
+    floral_taste = get_floral()
+
+    def get_winey():
+        for column in whisky:
+            return column.winey
+    winey_taste = get_winey()
+
+    def get_oak():
+        for column in whisky:
+            return column.oak
+    oak_taste = get_oak()
+
+    def get_cereal():
+        for column in whisky:
+            return column.cereal
+    cereal_taste = get_cereal()
+
+    def get_chocolate():
+        for column in whisky:
+            return column.chocolate
+    chocolate_taste = get_chocolate()
+
+    # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+
+    labels = 'smokey', 'peaty', 'spicy', 'sweet', 'fresh_fruit', 'dried_fruit', 'red_fruit', 'feinty', 'floral', 'winey', 'oak', 'cereal', 'chocolate'
+    sizes = [smokey_taste, peaty_taste, spicy_taste, sweet_taste, fresh_fruit_taste, dried_fruit_taste, red_fruit_taste, feinty_taste, floral_taste, winey_taste, oak_taste, cereal_taste, chocolate_taste]
+
+    fig1, ax1 = plt.subplots()
+
+    ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
+            startangle=90)
+
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+    plt.show()
+
+    return redirect(url_for('history'))
 
 
 @app.route('/logout')
@@ -65,13 +153,13 @@ def taste():
 
     def get_country():
         for column in user:
-            return user.country
+            return column.country
 
     user_country = get_country()
 
     def get_gender():
         for column in user:
-            return user.gender
+            return column.gender
 
     user_gender = get_gender()
 
