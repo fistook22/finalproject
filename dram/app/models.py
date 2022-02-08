@@ -39,6 +39,8 @@ class Whisky(UserMixin, db.Model):
     cereal = db.Column(db.Integer)
     chocolate = db.Column(db.Integer)
     finish = db.Column(db.String(32))
+    image = db.Column(db.String(120))
+    plot = db.Column(db.String(120))
     description = db.Column(db.String(120))
 
     user_id = db.Column(db.Integer)

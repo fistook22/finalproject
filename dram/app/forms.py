@@ -1,5 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, BooleanField, IntegerRangeField, SelectField, RadioField, SubmitField
+from flask_wtf.file import FileRequired
+from wtforms import PasswordField, StringField, BooleanField, IntegerRangeField, SelectField, RadioField, SubmitField, \
+    FileField
 from wtforms.validators import InputRequired, Length, Email, data_required
 
 
@@ -45,6 +47,7 @@ class Taste(FlaskForm):
                                   ("Long", "Long"), ("Very long", "Very long")]
                          , default=None)
 
+    image = FileField('image')
     description = StringField('description')
 
     submit = SubmitField('Add to My Whisky List')

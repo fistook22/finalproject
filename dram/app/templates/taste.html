@@ -10,7 +10,7 @@ Tasting
 
 {% block my_block %}
 
-    <form method="POST" role="form">
+    <form action="" method="post" name="simple" enctype="multipart/form-data" role="form">
         {{ form.hidden_tag() }}
 
         {{ form.distillery.label(class="form-label") }}
@@ -63,6 +63,9 @@ Tasting
         <br>
         {{ form.finish.label(class="form-label") }}
         {{ form.finish(class="form-control-sm") }}
+        <br>
+        {{ form.image.fileName }}
+        {{ form.image(class="form-control-sm") }}
         <br>
         {{ form.description.label(class="form-label") }}
         {{ form.description(class="form-control-sm") }}

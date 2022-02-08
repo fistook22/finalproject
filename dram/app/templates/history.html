@@ -23,7 +23,7 @@
       <td>{{ whisky.distillery }}</td>
       <td>{{ whisky.edition }}</td>
       <td>{{ whisky.description }}</td>
-      <td><button type="button" class="btn btn-primary" onclick="location.href='/statistics'"></button></td>
+      <td><a href="/whisky/{{ whisky.id }}"><button type="button" class="btn btn-primary"></button></a></td>
     </tr>
     {%endfor%}
 </table>
