@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 
+{% block image %}
+<body style="background-color:rgb(246, 246, 246);">
+{% endblock %}
+
 {% block my_block %}
-<h1>{{ whisky.distillery }} {{ whisky.edition }}</h1>
-<img class="container" src="{{ url_for('static', filename='/whisky_images/'+whisky.image) }}">
-<br>
-<img class="container" src="{{ url_for('static', filename='/whisky_images/'+whisky.plot) }}">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ url_for('static', filename='/whisky_images/'+whisky.image) }}" alt="Your Whisky">
+  <div class="card-body">
+    <h5 class="card-title">{{ whisky.distillery }} {{ whisky.edition }}</h5>
+    <img class="container" src="{{ url_for('static', filename='/whisky_images/'+whisky.plot) }}">
+    <a href="#" class="btn btn-primary">Edit</a>
+      <a href="#" class="btn btn-danger">Remove</a>
+  </div>
+</div>
 {% endblock %}
