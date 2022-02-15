@@ -1,3 +1,4 @@
+import os
 import random
 
 from flask import Flask
@@ -14,7 +15,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = random._urandom(80)
 db_info = {'host': 'localhost',
            'database': 'dram',
-           'psw': 'fistook22',
+           'psw': os.environ['psw'],
            'user': 'postgres',
            'port': ''}
 app.config[

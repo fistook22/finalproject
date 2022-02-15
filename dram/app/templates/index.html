@@ -1,8 +1,149 @@
 {% extends "base.html" %}
 
-{% block title %}
-Dram App
-{% endblock %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dram</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+        font-family: 'Redressed', cursive;
+    }
+    p, div {
+        font-family: 'Redressed', cursive;
+    }
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.card img {
+  max-width: 100%;
+  max-height: 70%;
+}
+.card {
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+  border-radius: 0;
+}
+.carousel-inner {
+  padding: 1em;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #e1e1e1;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (min-width: 600px) {
+  .card img {
+    height: 11em;
+  }
+}
+    </style>
+    {% endblock %}
 
 {% block my_block %}
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="cards-wrapper">
+      <div class="card">
+        <img src="{{ url_for('static', filename='/whisky_images/classic.jpg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Milk & Honey</h5>
+          <p class="card-text">Classic</p>
+          <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="{{ url_for('static', filename='/whisky_images/laphroaig.jpg') }}"  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Laphroaig</h5>
+          <p class="card-text">10</p>
+          <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="{{ url_for('static', filename='/whisky_images/macallan.jpg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Macallan</h5>
+          <p class="card-text">15</p>
+          <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+        <div class="card">
+          <img src="{{ url_for('static', filename='/whisky_images/ds.jpg') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Milk & Honey</h5>
+            <p class="card-text">Dead Sea</p>
+            <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+          </div>
+        </div>
+        <div class="card d-none d-md-block">
+          <img src="{{ url_for('static', filename='/whisky_images/glenfiddich.jpg') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Glenfiddich</h5>
+            <p class="card-text">15</p>
+            <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+          </div>
+        </div>
+        <div class="card d-none d-md-block">
+          <img src="{{ url_for('static', filename='/whisky_images/red.jpg') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Milk & Honey</h5>
+            <p class="card-text">Red Wine</p>
+            <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+        <div class="card">
+          <img src="{{ url_for('static', filename='/whisky_images/sherry.jpg') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Milk & Honey</h5>
+            <p class="card-text">Sherry</p>
+            <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+          </div>
+        </div>
+        <div class="card d-none d-md-block">
+          <img src="{{ url_for('static', filename='/whisky_images/macallan.jpg') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Macallan</h5>
+            <p class="card-text">15</p>
+            <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+          </div>
+        </div>
+        <div class="card d-none d-md-block">
+          <img src="{{ url_for('static', filename='/whisky_images/classic.jpg') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Milk & Honey</h5>
+            <p class="card-text">Classic</p>
+            <a href="{{ url_for('taste') }}" class="btn btn-primary">Taste now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+</div>
 {% endblock %}

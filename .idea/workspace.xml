@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13c7eafc-d444-410f-991c-5c90a1f62c85" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/finalproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/finalproject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dram/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/dram/app/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dram/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/dram/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dram/app/templates/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/dram/app/templates/history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dram/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dram/app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dram/app/templates/taste.html" beforeDir="false" afterPath="$PROJECT_DIR$/dram/app/templates/taste.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dram/app/templates/whisky.html" beforeDir="false" afterPath="$PROJECT_DIR$/dram/app/templates/whisky.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="24QO6V9DQFtdpma2fVjRffujFKh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -99,5 +101,16 @@
       <updated>1643559178075</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

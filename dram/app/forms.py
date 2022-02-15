@@ -46,7 +46,7 @@ class Taste(FlaskForm):
                                   ("Long", "Long"), ("Very long", "Very long")]
                          , default=None)
 
-    image = FileField('image')
+    image = FileField('image', validators=[data_required()])
     description = StringField('description')
 
     submit = SubmitField('Add to My Whisky List')

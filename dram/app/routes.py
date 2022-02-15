@@ -1,7 +1,7 @@
 import os
 
 import matplotlib.pyplot as plt
-from flask import redirect, render_template, url_for
+from flask import redirect, render_template, url_for, request
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
@@ -9,12 +9,12 @@ from werkzeug.utils import secure_filename
 from app import app, db, ALLOWED_EXTENSIONS
 from app.forms import LoginForm, RegisterForm, Taste
 from app.models import User, Whisky
-from collections import deque
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    whisky_data = Whisky.query.all()
+    return render_template('index.html', whisky_data=whisky_data)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -58,8 +58,30 @@ def history():
 @app.route('/whisky/<whisky_id>', methods=['GET', 'POST'])
 @login_required
 def whisky(whisky_id):
-    whisky = Whisky.query.filter_by(id=whisky_id).first()
-    return render_template('whisky.html', whisky=whisky)
+    whisky_page = Whisky.query.filter_by(id=whisky_id).first()
+    return render_template('whisky.html', whisky=whisky_page)
+
+
+@app.route('/delete/<whisky_id>', methods=['GET', 'POST'])
+@login_required
+def delete(whisky_id):
+    whisky_delete = Whisky.query.filter_by(id=whisky_id).first()
+
+    try:
+        db.session.delete(whisky_delete)
+        db.session.commit()
+        return redirect(url_for('history'))
+    except:
+        return "failed to delete"
+
+
+@app.route('/update/<whisky_id>', methods=['GET', 'POST'])
+@login_required
+def update(whisky_id):
+    whisky_delete = Whisky.query.filter_by(id=whisky_id).first()
+    db.session.delete(whisky_delete)
+    db.session.commit()
+    return redirect(url_for('taste'))
 
 
 @app.route('/logout')
