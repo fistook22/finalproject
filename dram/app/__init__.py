@@ -10,6 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 UPLOAD_FOLDER = 'app/static/whisky_images'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = random._urandom(80)
