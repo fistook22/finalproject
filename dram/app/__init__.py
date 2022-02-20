@@ -7,15 +7,10 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
-def create_app():
-app = Flask(__name__)
-
 UPLOAD_FOLDER = 'app/static/whisky_images'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
-
-
-
+app = Flask(__name__)
 
 app.config['SECRET_KEY'] = random._urandom(80)
 db_info = {'host': 'localhost',
