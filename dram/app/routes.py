@@ -1,7 +1,7 @@
 import os
 
 import matplotlib.pyplot as plt
-from flask import redirect, render_template, url_for, request
+from flask import redirect, render_template, url_for
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
