@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, BooleanField, IntegerRangeField, SelectField, RadioField, SubmitField, \
-    FileField
-from wtforms.validators import InputRequired, Length, Email, data_required
+from wtforms import PasswordField, StringField, BooleanField, IntegerRangeField, SelectField, RadioField, SubmitField, FileField
+from wtforms.validators import InputRequired, Length, Email, DataRequired
 
 
 class LoginForm(FlaskForm):
@@ -19,8 +18,8 @@ class RegisterForm(FlaskForm):
 
 
 class Taste(FlaskForm):
-    distillery = StringField('Distillerry', validators=[data_required()])
-    edition = StringField('Edition', validators=[data_required()])
+    distillery = StringField('Distillery', validators=[DataRequired()])
+    edition = StringField('Edition', validators=[DataRequired()])
 
     color = SelectField('Color',
                         choices=[("Gold", "Gold"), ("Light gold", "Light gold"), ("Deep gold", "Deep gold"),
@@ -46,7 +45,7 @@ class Taste(FlaskForm):
                                   ("Long", "Long"), ("Very long", "Very long")]
                          , default=None)
 
-    image = FileField('image', validators=[data_required()])
+    image = FileField('image', validators=[DataRequired()])
     description = StringField('description')
 
     submit = SubmitField('Add to My Whisky List')
