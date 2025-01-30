@@ -46,4 +46,3 @@ class Whisky(UserMixin, db.Model):
     user_id = db.Column(db.Integer)
     user_country = db.Column(db.String(32))
     user_gender = db.Column(db.String(32))
-
